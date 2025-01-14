@@ -2,6 +2,7 @@ from flask import Flask, request, render_template_string
 from Bio import Entrez
 from Bio import Medline
 from collections import defaultdict
+import os
 
 app = Flask(__name__)
 
@@ -193,4 +194,4 @@ def index():
 
 if __name__ == "__main__":
     # Run the Flask app
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=os.environ.get('PORT', 5000), debug=True)
